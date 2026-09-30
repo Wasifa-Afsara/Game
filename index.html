@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lunar Cadet: Artemis Expedition - A polished educational space-survival strategy game for young astronauts. Train on Earth, pilot to the Moon, manage outpost resources, survive crises, and return home safely!">
+  <meta name="keywords" content="Space Game, Educational Game, Moon Survival, Artemis Mission, Spacecraft Simulator, Teen Coding Game">
+  <title>LUNAR CADET: ARTEMIS SPACE EXPEDITION</title>
+
+  <!-- Google Fonts & Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+</head>
+<body>
+
+  <!-- Dynamic Starfield Canvas Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Main Game Container -->
+  <div id="app-container">
+
+    <!-- HUD Header -->
+    <header class="main-header">
+      <div class="game-title">
+        <span style="font-size: 1.8rem;">🚀</span>
+        <div>
+          <h1>LUNAR <span>CADET</span></h1>
+          <div style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; font-family: var(--font-heading);">SPACE SURVIVAL STRATEGY</div>
+        </div>
+        <span class="badge-tag" id="level-badge">LEVEL 1</span>
+      </div>
+
+      <div class="hud-stats">
+        <div class="stat-item" title="Science Points Earned">
+          <span class="icon">⭐</span>
+          <span>SCORE:</span>
+          <span class="val" id="score-val">0</span>
+        </div>
+
+        <div class="header-actions">
+          <button id="sound-toggle-btn" class="icon-btn" onclick="game.toggleSound()" title="Toggle Sound FX">🔊</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mission Stepper Progress Bar -->
+    <!-- Loop: TRAIN -> TRAVEL -> ESTABLISH -> EXPLORE -> MANAGE -> DECIDE -> SURVIVE -> PREPARE -> RETURN -->
+    <nav class="stepper-container" aria-label="Mission Progress">
+      <ol class="stepper-list">
+        <li class="step-item active">
+          <span class="step-number">1</span>
+          <span>TRAIN</span>
+        </li>
+        <li class="step-divider"></li>
+        <li class="step-item">
+          <span class="step-number">2</span>
+          <span>TRAVEL</span>
+        </li>
+        <li class="step-divider"></li>
+        <li class="step-item">
+          <span class="step-number">3</span>
+          <span>ESTABLISH</span>
+        </li>
+        <li class="step-divider"></li>
+        <li class="step-item">
+          <span class="step-number">4</span>
+          <span>EXPLORE</span>
+        </li>
+        <li class="step-divider"></li>
+        <li class="step-item">
+          <span class="step-number">5</span>
+          <span>MANAGE</span>
+        </li>
+        <li class="step-divider"></li>
+        <li class="step-item">
+          <span class="step-number">6</span>
+          <span>DECIDE</span>
+        </li>
+        <li class="step-divider"></li>
+        <li class="step-item">
+          <span class="step-number">7</span>
+          <span>SURVIVE</span>
+        </li>
+        <li class="step-divider"></li>
+        <li class="step-item">
+          <span class="step-number">8</span>
+          <span>PREPARE</span>
+        </li>
+        <li class="step-divider"></li>
+        <li class="step-item">
+          <span class="step-number">9</span>
+          <span>RETURN</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Main Game Grid Layout -->
+    <main class="main-grid">
+      
+      <!-- Left: Interactive Viewport (Level Content) -->
+      <section class="game-viewport" id="viewport-content">
+        <!-- Injected dynamically by level managers -->
+      </section>
+
+      <!-- Right: ELI Mission Control AI Sidebar -->
+      <aside class="eli-sidebar">
+        <div class="eli-avatar-box">
+          <div class="eli-avatar">
+            <svg viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="45" stroke="#00f0ff" stroke-width="4" stroke-dasharray="8 4"/>
+              <circle cx="50" cy="50" r="28" fill="#00f0ff" opacity="0.3"/>
+              <circle cx="50" cy="50" r="14" fill="#00f0ff"/>
+              <circle cx="50" cy="50" r="6" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="eli-name-box">
+            <h3>M.C. AI ELI</h3>
+            <div class="eli-status">
+              <span class="status-dot"></span>
+              <span>ONLINE // LINKED</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="eli-dialog-box">
+          <div id="eli-dialog-text" class="eli-typing-text">
+            Initializing Mission Control connection...
+          </div>
+          <div id="eli-options-container" style="margin-top: 10px;"></div>
+        </div>
+
+        <!-- Science Tip Log -->
+        <div class="science-log-box">
+          <div class="science-log-header">
+            <span>💡</span>
+            <span id="science-log-title">[DATA LOG] REAL SPACE SCIENCE</span>
+          </div>
+          <div class="science-log-content" id="science-log-body">
+            Welcome Cadet! Follow ELI's instructions to complete your space strategy training.
+          </div>
+        </div>
+      </aside>
+
+    </main>
+
+  </div>
+
+  <!-- Game Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/eli.js"></script>
+  <script src="js/level1.js"></script>
+  <script src="js/level2.js"></script>
+  <script src="js/level3.js"></script>
+  <script src="js/game.js"></script>
+
+</body>
+</html>
